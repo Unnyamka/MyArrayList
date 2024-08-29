@@ -9,13 +9,13 @@ public class MyArrayList<T> {
         elements = new Object[DEFAULT_CAPACITY];
     }
 
-    // Конструктор для инициализации из другой коллекции
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РёР· РґСЂСѓРіРѕР№ РєРѕР»Р»РµРєС†РёРё
     public MyArrayList(Collection<? extends T> collection) {
         elements = collection.toArray();
         size = elements.length;
     }
 
-    // Добавление элемента
+    // Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
     public void add(T element) {
         if (size == elements.length) {
             increaseCapacity();
@@ -23,7 +23,7 @@ public class MyArrayList<T> {
         elements[size++] = element;
     }
 
-    // Получение элемента
+    // РџРѕР»СѓС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
     @SuppressWarnings("unchecked")
     public T get(int index) {
         if (index >= size || index < 0) {
@@ -32,7 +32,7 @@ public class MyArrayList<T> {
         return (T) elements[index];
     }
 
-    // Удаление элемента по индексу
+    // РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
     public T remove(int index) {
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -41,11 +41,11 @@ public class MyArrayList<T> {
         for (int i = index; i < size - 1; i++) {
             elements[i] = elements[i + 1];
         }
-        elements[--size] = null; // Обнуляем последний элемент
+        elements[--size] = null; // ГЋГЎГ­ГіГ«ГїГҐГ¬ ГЇГ®Г±Г«ГҐГ¤Г­ГЁГ© ГЅГ«ГҐГ¬ГҐГ­ГІ
         return removedElement;
     }
 
-    // Добавление всех элементов другой коллекции
+    // Р”РѕР±Р°РІР»РµРЅРёРµ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ РґСЂСѓРіРѕР№ РєРѕР»Р»РµРєС†РёРё
     public void addAll(Collection<? extends T> collection) {
         for (T element : collection) {
             add(element);
@@ -63,7 +63,7 @@ public class MyArrayList<T> {
         return size;
     }
 
-    // Метод для сортировки пузырьком с флагом
+    // РњРµС‚РѕРґ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РїСѓР·С‹СЂСЊРєРѕРј СЃ С„Р»Р°РіРѕРј
     public static <T extends Comparable<? super T>> void bubbleSort(MyArrayList<T> list) {
         boolean swapped;
         for (int i = 0; i < list.size() - 1; i++) {
