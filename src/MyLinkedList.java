@@ -16,14 +16,14 @@ public class MyLinkedList<T> {
 
     public MyLinkedList() {}
 
-    // Конструктор для инициализации из другой коллекции
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РёР· РґСЂСѓРіРѕР№ РєРѕР»Р»РµРєС†РёРё
     public MyLinkedList(Collection<? extends T> collection) {
         for (T element : collection) {
             add(element);
         }
     }
 
-    // Добавление элемента
+    // Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
     public void add(T element) {
         Node<T> newNode = new Node<>(element);
         if (tail == null) {
@@ -35,7 +35,7 @@ public class MyLinkedList<T> {
         size++;
     }
 
-    // Получение элемента по индексу
+    // РџРѕР»СѓС‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
     public T get(int index) {
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -47,7 +47,7 @@ public class MyLinkedList<T> {
         return current.data;
     }
 
-    // Удаление элемента по индексу
+    // РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ
     public T remove(int index) {
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -74,7 +74,7 @@ public class MyLinkedList<T> {
         return current.data;
     }
 
-    // Добавление всех элементов другой коллекции
+    // Р”РѕР±Р°РІР»РµРЅРёРµ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ РґСЂСѓРіРѕР№ РєРѕР»Р»РµРєС†РёРё
     public void addAll(Collection<? extends T> collection) {
         for (T element : collection) {
             add(element);
@@ -85,7 +85,7 @@ public class MyLinkedList<T> {
         return size;
     }
 
-    // Метод для сортировки пузырьком с флагом
+    // РњРµС‚РѕРґ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РїСѓР·С‹СЂСЊРєРѕРј СЃ С„Р»Р°РіРѕРј
     public static <T extends Comparable<? super T>> void bubbleSort(MyLinkedList<T> list) {
         boolean swapped;
         for (int i = 0; i < list.size() - 1; i++) {
